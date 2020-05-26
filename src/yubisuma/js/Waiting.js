@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { db } from '../utils/Firebase.js';
+import { db } from '../../Firebase';
 import '../css/waiting.css'
 import { Form, FormGroup, Label, Input, Button, Modal, FormFeedback } from 'reactstrap';
 import WaitingSvg from "../Component/WaitingSvg";
