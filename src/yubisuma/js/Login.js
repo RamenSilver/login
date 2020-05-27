@@ -9,8 +9,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import '../css/login.css'
-
-import { db, storage } from '../utils/Firebase.js';
+import { db, storage } from '../../Firebase';
 
 function Icon(props) {
   const [loaded, setLoaded] = useState(false);

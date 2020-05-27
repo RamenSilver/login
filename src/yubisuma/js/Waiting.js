@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { db } from '../utils/Firebase.js';
+import { db, storage } from '../../Firebase';
 import '../css/waiting.css'
 import { Form, FormGroup, Label, Input, Button, Modal, FormFeedback } from 'reactstrap';
 import WaitingSvg from "../Component/WaitingSvg";
@@ -30,19 +30,6 @@ class Waiting extends React.Component {
     console.log("called now");
     let tempPlayer = [];
     let docRef = db.collection("roomID").doc(this.state.roomId);
-    let unsubscribe = docRef.onSnapshot((querySnapshot) => {
-      querySnapshot.docChanges().forEach((change) => {
-            if (change.type === "added") {
-              console.log(change.doc.data());
-            }
-            if (change.type === "modified") {
-                console.log("Modified city: ", change.doc.data());
-            }
-            if (change.type === "removed") {
-                console.log("Removed city: ", change.doc.data());
-            }
-        });
-    })
     docRef.get().then((doc) => {
       console.log(doc);
       doc.data().users.forEach((user) => {
