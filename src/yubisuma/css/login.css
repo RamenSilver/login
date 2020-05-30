@@ -86,15 +86,14 @@ h1 {
   margin-bottom:24px;
 }
 
-span {
+/* span {
   font-weight:200;
-}
+} */
 
 img{
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   background-size: cover;
-  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -104,14 +103,27 @@ img{
   background: #f5f5f5;
   margin: 0 auto 24px;
   cursor: pointer;
-  border-radius: 50%;
+}
+
+#icon img {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
 }
 
 /*モーダル*/
+.modal-dialog {
+  max-width: 650px;
+}
+
 .modal-header {
   margin: 0 auto;
   border-bottom: none;
   padding-bottom: 0;
+}
+
+.modal-body {
+  text-align: center;
 }
 
 .btn-primary {
@@ -143,7 +155,13 @@ input {
   box-shadow:0px 3px 0px #c1524e;
 }
 
+.btn:hover {
+  opacity: 0.8;
+  background: #f26964;
+}
+
 .btn:active {
   top:3px;
   box-shadow:none;
+  background: #f26964;
 }

@@ -118,7 +118,7 @@ class Login extends React.Component {
         docRef.set({
           lead : {
             index : 0,
-            thumbs : 2,　
+            thumbs : 2,
             win_lose : 0
           },
           total_hands : 2,
