@@ -7,6 +7,7 @@ import { ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import {createUser} from '../Component/services/createUser.js';
 
 import '../css/login.css'
 import { db, storage } from '../../Firebase';
@@ -85,76 +86,24 @@ class Login extends React.Component {
 
   handleOnSubmit = (values) => {
     let iconSrc = this.state.iconSrc;
-    let docRef = db.collection("roomID").doc(values.roomId);
-    docRef.get().then( (doc) => {
-      if (doc.exists) {
-        docRef.update({
-          users : firebase.firestore.FieldValue.arrayUnion({
-            username : values.username,
-            cur_hands_up: -1,
-            hands : 2,
-            iconSrc : iconSrc
-          })
-        })
-        .then(() => {
-          console.log('users successfully added to the database');
-          this.props.history.push({
-            pathname: "/waiting",
-            state: {
-              icon: this.state.iconSrc,
-              username: values.username,
-              roomId: values.roomId
-            }
-          });
 
-        }).catch((error) => {
-          console.log(error);
+    createUser(values, this.state.iconSrc)
+    .then(() => {
+      console.log('users successfully added to the database');
+      this.props.history.push({
+        pathname: "/waiting",
+        state: {
+          icon: this.state.iconSrc,
+          username: values.username,
+          roomId: values.roomId
+        }
+      });
 
-          console.log('users were not successfully added to the database');
-        });
+      }).catch((error) => {
+        console.log(error);
 
-      }
-      else {
-        docRef.set({
-          lead : {
-            index : 0,
-            thumbs : 2,　
-            win_lose : 0
-          },
-          total_hands : 2,
-          host : values.username,
-          round : 0,
-          table_state : "waiting",
-          users : [{
-            username : values.username,
-            cur_hands_up: -1,
-            hands : 2,
-            iconSrc : iconSrc
-          }]
-        })
-        .then(() => {
-          console.log("Host Successfully ");
-          this.props.history.push({
-            pathname: "/waiting",
-            state: {
-              icon: this.state.iconSrc,
-              username: values.username,
-              roomId: values.roomId
-            }
-          });
-
-        }).catch((error) => {
-          console.log(error);
-
-          console.log('host could not be added to db');
-        });
-
-      }
-    }).catch(function (error) {
-      console.log(error);
-
-    })
-
+        console.log('users were not successfully added to the database');
+      });
 
   }
 
