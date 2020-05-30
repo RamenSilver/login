@@ -2,7 +2,7 @@ body {
   /* background-color: #6495ed; */
   font-family: sans-serif;
   color: #1C1C1C;
-  background-image: url("../img/izakaya.jpg");
+  background-image: url("../img/background.png");
   background-size: cover;
 }
 
@@ -17,11 +17,12 @@ h1 {
   color: #1C1C1C;
   background-color: #ffd;
   border-radius: 50px;
+  font-size: 30px;
 }
 
 .content-wrapper {
   width: 100%;
-  height: 100%;
+  height: 700px;
 }
 
 .content {
@@ -32,9 +33,7 @@ h1 {
 
 .players-area {
   width: 100%;
-  height: 65%;
   /* background-color: #6495ed; */
-  padding:  10px;
   display:flex;
   flex-wrap:wrap;
   align-items:stretch;
@@ -43,85 +42,140 @@ h1 {
 
 .player {
   width: 20%;
-  height: 240px;
+  height: 220px;
   padding: 5px 10px 10px;
-  margin:  10px;
+  margin: 5px;
   color:  #1C1C1C;
   text-align: center;
-  background-color: #afeeee;
+  background-color: rgba(175,238,238,0.8);;
   border-radius: 10px;
   border: 5px solid #4169e1;
 }
 
 .face {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   margin: 0 auto;
-  background-color: #fff;
 }
 
 .fingers {
   width: 100%;
-  height: 100px;
-  background-color: #afeeee;
+  height: 80px;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .left ,.right {
   width: 100px;
   height: 100%;
   margin: 0 2px;
-  background-color: #afeeee;
+}
+
+.clear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  text-align: center;
+}
+
+.close {
+  display: none;
+}
+
+h2 {
+  line-height: 90px;
+  color: red;
 }
 
 .my-area {
   width: 100%;
-  height: 35%;
+  height: 28%;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
 }
 
-.my-fingers-area {
-  width: 60%;
-  height: 100%;
+.rhythem-area {
+  width: 35%;
   padding: 5px;
   display: flex;
   justify-content: flex-end;
 }
 
+.rhythem {
+  width: 75%;
+  height: 100%;
+  background-color: #fff;
+  border: 5px double #ff8c00;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold
+}
+
+.rhythem-sey {
+
+}
+
+.rhythem-num {
+
+}
+
+
+.my-fingers-area {
+  width: 30%;
+  height: 100%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
 
 .my-fingers {
   width: 340px;
   height: 100%;
   display: flex;
-  justify-content: flex-end;
-  background-color: #98fb98;
+  justify-content: center;
+  background-color: rgba(152,251,152,0.8);;
   border: 5px solid #008000;
   border-radius: 10px;
 }
 
 .my-left, .my-right {
-  width: 150px;
-  height: 150px;
+  width: 50%;
+  height: 90%;
   margin: 10px;
-  background-color: #98fb98;
   cursor: pointer;
 }
 
 .my-numbers {
-  width: 40%;
+  width: 35%;
   height: 100%;
-  text-align: center;
-  line-height: 150px;
   padding: 5px;
-  color: #fff;
-  font-size: 35px;
+  display: flex;
+  justify-content: flex-start;
+
   /* visibility: hidden; */
 }
 
-select {
-  cursor: pointer;
+.my-number {
+  width: 75%;
+  height: 100%;
+  background-color: #fff;
+  border: 5px double #ff8c00;
+  border-radius: 10px;
+  /* text-align: center;
+  line-height: 186px; */
+  font-size: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 img{
@@ -132,6 +186,10 @@ img{
 }
 
 /*モーダル*/
+.modal-dialog {
+  max-width: 540px;
+}
+
 .modal-header {
   margin: 0 auto;
   border-bottom: none;
@@ -140,6 +198,15 @@ img{
 
 .btn-primary {
   margin: 2px;
-  width: 47px;
+  width: 46px;
   height: 37px;
+  padding: 0;
+}
+
+#modal-body2 {
+  text-align: center;
+}
+
+#modal-body2 h2 {
+  font-size: 60px;
 }
