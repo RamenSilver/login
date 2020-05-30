@@ -86,7 +86,6 @@ class Login extends React.Component {
 
   handleOnSubmit = (values) => {
     let iconSrc = this.state.iconSrc;
-
     createUser(values, this.state.iconSrc)
     .then(() => {
       console.log('users successfully added to the database');
@@ -98,6 +97,7 @@ class Login extends React.Component {
           roomId: values.roomId
         }
       });
+
 
       }).catch((error) => {
         console.log(error);
